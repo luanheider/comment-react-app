@@ -1,12 +1,5 @@
 import { useState } from 'react'
-import { 
-  ContainerStyled, 
-  ImgStyled, 
-  TextAreaStyled, 
-  ButtonStyled,
-  ListStyled,
-  ListItemStyled
- } from './styles'
+import * as C from './styles'
 
 function App() {
   const [comment, setComment] = useState('')
@@ -26,30 +19,30 @@ function App() {
   }
 
     return (
-    <ContainerStyled>
-        <ImgStyled src="/img/people.svg" alt="People" />
-          <TextAreaStyled
+    <C.ContainerStyled>
+        <C.ImgStyled src="/img/people.svg" alt="People" />
+          <C.TextAreaStyled
             name="areatext"
             id="areatext"
             cols="30"
             rows="10"
             value={comment}
             onChange={(e) => setComment(e.target.value)}>
-          </TextAreaStyled>
-          <ButtonStyled 
+          </C.TextAreaStyled>
+          <C.ButtonStyled 
               onClick={handleActionButton}
               comment={comment}>
               Comentar
-          </ButtonStyled>
-          <ListStyled>
+          </C.ButtonStyled>
+          <C.ListStyled>
             { allComments.map((comment, index) => (
-              <ListItemStyled key={index}>
+              <C.ListItemStyled key={index}>
                 {comment}
-              </ListItemStyled>
+              </C.ListItemStyled>
             ))}
-          </ListStyled>
-    </ContainerStyled>
+          </C.ListStyled>
+    </C.ContainerStyled>
   )
 }
 
-export default App;
+export default App
